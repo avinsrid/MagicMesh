@@ -25,7 +25,7 @@ struct MagicMeshApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomePage()
         }
         .modelContainer(sharedModelContainer)
     }
