@@ -24,6 +24,9 @@ struct WelcomePage: View {
                     RoundedRectangle(cornerRadius: 30)
                         .stroke(Color.black,lineWidth: 3)
                 )
+                .onLongPressGesture(minimumDuration: 5.0) {
+                    path.append("MainUiView")
+                }
                 
                 Text("Welcome to Magic Mesh")
                     .font(.title)
@@ -38,8 +41,13 @@ struct WelcomePage: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
             .background(Gradient(colors: gradientColors))
+            .navigationDestination(for: String.self) { value in
+                if value == "MainUiView" {
+                    MainUi()
+                }
+            }
         }
-       
+        
     }
 }
 
